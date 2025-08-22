@@ -33,7 +33,7 @@ public class CoursesController : Controller
         return _service.Add(dto);
     }
 
-    [HttpPut("{id:int)")]
+    [HttpPut("{id:int})")]
     public void Update(int id, UpdateCourseDto dto)
     {
         _service.Update(id, dto);

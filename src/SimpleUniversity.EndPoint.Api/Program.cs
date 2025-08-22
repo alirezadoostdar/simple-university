@@ -10,6 +10,9 @@ using SimpleUniversity.Application.SelectedClasses;
 using SimpleUniversity.Persistence.EF.SelectedClasses;
 using SimpleUniversity.Application.Classes.Contracts;
 using SimpleUniversity.Persistence.EF.Classes;
+using SimpleUniversity.Application.Teachers.Contracts;
+using SimpleUniversity.Persistence.EF.Teachers;
+using SimpleUniversity.Application.Teachers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,7 +35,10 @@ builder.Services.AddScoped<IUnitOfWork, EFUnitOfWork>()
     .AddScoped<ISelectedClassService, SelectedClassService>()
     .AddScoped<ISelectedClassRepository, EFSelectedClassRepository>()
     .AddScoped<IClassRepository, EFClassRepository>()
-    .AddScoped<IClassService, ClassService>();
+    .AddScoped<IClassService, ClassService>()
+    .AddScoped<ITeacherRepository, TeacherRepository>()
+    .AddScoped<ITeacherService, TeacherService>();
+    
 
 var app = builder.Build();
 

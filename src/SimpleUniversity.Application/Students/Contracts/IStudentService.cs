@@ -9,10 +9,3 @@ namespace SimpleUniversity.Application.Students.Contracts
         List<GetStudentDto> GetAll();
     }
 }
-
-
-public interface IStudentService
-{
-    int Create(CreateStudentDto dto);
-    List<GetStudentDto> GetAll();
-}

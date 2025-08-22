@@ -32,7 +32,7 @@ namespace SimpleUniversity.EndPoint.Api.Controllers
             return _service.Add(dto);
         }
 
-        [HttpPut("{id:int)")]
+        [HttpPut("{id:int})")]
         public void Update(int id, UpdateTermDto dto)
         {
             _service.Update(id, dto);
