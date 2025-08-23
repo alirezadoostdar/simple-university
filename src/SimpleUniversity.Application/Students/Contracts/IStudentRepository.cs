@@ -7,6 +7,7 @@ namespace SimpleUniversity.Application.Students.Contracts
     {
         void Add(Student student);
         List<GetStudentDto> GetAll();
+        List<GetStudentUnitTermsDto> GetListTotalUnits();
         List<GetStudentUnitTermsDto> GetListWithTotalUnitByTerm(int termId);
     }
 }

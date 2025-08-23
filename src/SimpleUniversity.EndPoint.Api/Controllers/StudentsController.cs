@@ -29,10 +29,16 @@ namespace SimpleUniversity.EndPoint.Api.Controllers
             return _service.GetAll();
         }
 
-        [HttpGet("{termId:int}/GetListWithTotalUnit")]
+        [HttpGet("{termId:int}/GetListWithTotalUnitByTermId")]
         public List<GetStudentUnitTermsDto> GetStudentUnitTerms(int termId)
         {
             return _service.GetListWithTotalUnitByTerm(termId);
+        }
+
+        [HttpGet("{termId:int}/GetListTotalUnit")]
+        public List<GetStudentUnitTermsDto> GetTotalUnit()
+        {
+            return _service.GetListTotalUnits();
         }
     }
 }

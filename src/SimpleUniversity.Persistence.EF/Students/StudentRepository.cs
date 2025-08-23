@@ -40,6 +40,20 @@ namespace SimpleUniversity.Persistence.EF.Students
                      }).ToList();
         }
 
+        public List<GetStudentUnitTermsDto> GetListTotalUnits()
+        {
+            var list = _dbContext.Students
+                 .Select(_ => new GetStudentUnitTermsDto
+                 {
+                     Code = _.Code,
+                     Name = _.FirstName,
+                     Family = _.LastName,
+                     TotalUnit = _.SelectedClasses
+                        .Sum(_ => _.Class.Course.Unit)
+                 }).ToList();
+            return list;
+        }
+
         public List<GetStudentUnitTermsDto> GetListWithTotalUnitByTerm(int termId)
         {
             var list = _dbContext.Students

@@ -47,6 +47,11 @@ namespace SimpleUniversity.Application.Students
             return _repository.GetAll();
         }
 
+        public List<GetStudentUnitTermsDto> GetListTotalUnits()
+        {
+            return _repository.GetListTotalUnits();
+        }
+
         public List<GetStudentUnitTermsDto> GetListWithTotalUnitByTerm(int termId)
         {
             return _repository.GetListWithTotalUnitByTerm(termId);
