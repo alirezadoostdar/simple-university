@@ -1,5 +1,6 @@
 ﻿using SimpleUniversity.Application.Students.Contracts;
 using SimpleUniversity.Domain;
+using SimpleUniversity.Domain.Students.Dtos;
 using System.Net.Http.Headers;
 
 namespace SimpleUniversity.Persistence.EF.Students
@@ -37,6 +38,21 @@ namespace SimpleUniversity.Persistence.EF.Students
                              Phone = s.ContactInfo.Phone
                          }
                      }).ToList();
+        }
+
+        public List<GetStudentUnitTermsDto> GetListWithTotalUnitByTerm(int termId)
+        {
+            var list = _dbContext.Students
+                .Select(_ => new GetStudentUnitTermsDto
+                {
+                    Code = _.Code,
+                    Name = _.FirstName,
+                    Family = _.LastName,
+                    TotalUnit = _.SelectedClasses
+                                    .Where(_ => _.Class.TermId == termId)
+                                    .Sum(_ => _.Class.Course.Unit)
+                }).ToList();
+            return list;
         }
     }
 }

@@ -31,7 +31,7 @@ public class TeacherRepository : ITeacherRepository
     public int GetTotalUnitByTerm(int id, int termId)
     {
         var totalUnit = _context.Classes.Where(_ => _.TeacherId == id && _.TermId == termId)
-                    .Include(_ => _.Course).Sum(_ => _.Course.Unit);
+         .Sum(_ => _.Course.Unit);
         return totalUnit;
     }
 

@@ -1,5 +1,6 @@
 ﻿
 using SimpleUniversity.Application.Students.Contracts;
+using SimpleUniversity.Domain.Students.Dtos;
 
 namespace SimpleUniversity.Application.Students.Contracts
 {
@@ -7,5 +8,6 @@ namespace SimpleUniversity.Application.Students.Contracts
     {
         int Create(CreateStudentDto dto);
         List<GetStudentDto> GetAll();
+        List<GetStudentUnitTermsDto> GetListWithTotalUnitByTerm(int termId);
     }
 }

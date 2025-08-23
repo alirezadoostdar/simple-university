@@ -26,6 +26,6 @@ public class TeacherService : ITeacherService
 
     public int GetTotalUnitByTerm(int id, int termId)
     {
-        throw new NotImplementedException();
+       return _repository.GetTotalUnitByTerm(id, termId);
     }
 }

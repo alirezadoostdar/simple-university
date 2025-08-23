@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SimpleUniversity.Application.Students.Contracts;
+using SimpleUniversity.Domain.Students.Dtos;
 
 namespace SimpleUniversity.EndPoint.Api.Controllers
 {
@@ -26,6 +27,12 @@ namespace SimpleUniversity.EndPoint.Api.Controllers
         public List<GetStudentDto> GetAll()
         {
             return _service.GetAll();
+        }
+
+        [HttpGet("{termId:int}/GetListWithTotalUnit")]
+        public List<GetStudentUnitTermsDto> GetStudentUnitTerms(int termId)
+        {
+            return _service.GetListWithTotalUnitByTerm(termId);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using SimpleUniversity.Application.Contracts;
 using SimpleUniversity.Application.Students.Contracts;
 using SimpleUniversity.Domain;
+using SimpleUniversity.Domain.Students.Dtos;
 
 namespace SimpleUniversity.Application.Students
 {
@@ -45,5 +46,12 @@ namespace SimpleUniversity.Application.Students
         {
             return _repository.GetAll();
         }
+
+        public List<GetStudentUnitTermsDto> GetListWithTotalUnitByTerm(int termId)
+        {
+            return _repository.GetListWithTotalUnitByTerm(termId);
+           
+        }
+
     }
 }
