@@ -1,4 +1,5 @@
 ﻿using SimpleUniversity.Domain;
+using SimpleUniversity.Domain.Courses.Dtos;
 
 namespace SimpleUniversity.Application.Courses.Contracts;
 
@@ -9,4 +10,5 @@ public interface ICourseRepository
     void Delete(Course course);
     Course? GetById(int id);
     List<Course> GetAll();
+    List<GetCourseTermsDto> GetTerms(int courseId);
 }

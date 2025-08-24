@@ -13,6 +13,9 @@ using SimpleUniversity.Persistence.EF.Classes;
 using SimpleUniversity.Application.Teachers.Contracts;
 using SimpleUniversity.Persistence.EF.Teachers;
 using SimpleUniversity.Application.Teachers;
+using SimpleUniversity.Application.Courses.Contracts;
+using SimpleUniversity.Application.Courses;
+using SimpleUniversity.Persistence.EF.Courses;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,7 +40,9 @@ builder.Services.AddScoped<IUnitOfWork, EFUnitOfWork>()
     .AddScoped<IClassRepository, EFClassRepository>()
     .AddScoped<IClassService, ClassService>()
     .AddScoped<ITeacherRepository, TeacherRepository>()
-    .AddScoped<ITeacherService, TeacherService>();
+    .AddScoped<ITeacherService, TeacherService>()
+    .AddScoped<ICourseRepository, CourseRepository>()
+    .AddScoped<ICourseService, CourseService>();
     
 
 var app = builder.Build();

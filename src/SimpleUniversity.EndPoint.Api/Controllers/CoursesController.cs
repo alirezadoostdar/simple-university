@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SimpleUniversity.Application.Courses.Contracts;
 using SimpleUniversity.Application.Terms.Contracts;
+using SimpleUniversity.Domain.Courses.Dtos;
 
 namespace SimpleUniversity.EndPoint.Api.Controllers;
 
@@ -43,5 +44,11 @@ public class CoursesController : Controller
     public void Delete(int id)
     {
         _service.Delete(id);
+    }
+
+    [HttpGet("{courseId:int}/ListOFTerms")]
+    public List<GetCourseTermsDto> GetListOfTerms(int courseId)
+    {
+        return _service.GetTerms(courseId);
     }
 }

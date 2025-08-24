@@ -2,6 +2,7 @@
 using SimpleUniversity.Application.Courses.Contracts;
 using SimpleUniversity.Application.Courses.Contracts.Exceptions;
 using SimpleUniversity.Domain;
+using SimpleUniversity.Domain.Courses.Dtos;
 
 namespace SimpleUniversity.Application.Courses;
 
@@ -64,6 +65,11 @@ public class CourseService : ICourseService
             Title = course.Title,
             Unit = course.Unit,
         };
+    }
+
+    public List<GetCourseTermsDto> GetTerms(int courseId)
+    {
+        return _repository.GetTerms(courseId);
     }
 
     public void Update(int id, UpdateCourseDto dto)

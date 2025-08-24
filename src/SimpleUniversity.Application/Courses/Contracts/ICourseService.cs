@@ -1,4 +1,6 @@
-﻿namespace SimpleUniversity.Application.Courses.Contracts;
+﻿using SimpleUniversity.Domain.Courses.Dtos;
+
+namespace SimpleUniversity.Application.Courses.Contracts;
 
 public interface ICourseService
 {
@@ -7,4 +9,5 @@ public interface ICourseService
     void Delete(int id);
     GetCourseDto GetById(int id);
     List<GetCourseDto> GetAll();
+    List<GetCourseTermsDto> GetTerms(int courseId);
 }
