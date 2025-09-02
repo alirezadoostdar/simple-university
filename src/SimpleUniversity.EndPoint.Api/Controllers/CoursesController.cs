@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SimpleUniversity.Application.Courses.Contracts;
+using SimpleUniversity.Application.Teachers.Contracts;
 using SimpleUniversity.Application.Terms.Contracts;
 using SimpleUniversity.Domain.Courses.Dtos;
 
@@ -10,10 +12,12 @@ namespace SimpleUniversity.EndPoint.Api.Controllers;
 public class CoursesController : Controller
 {
     private readonly ICourseService _service;
+    private readonly ICourseRepository _courseRepository;
 
-    public CoursesController(ICourseService service)
+    public CoursesController(ICourseService service, ICourseRepository courseRepository)
     {
         _service = service;
+        _courseRepository = courseRepository;
     }
 
     [HttpGet]
@@ -50,5 +54,11 @@ public class CoursesController : Controller
     public List<GetCourseTermsDto> GetListOfTerms(int courseId)
     {
         return _service.GetTerms(courseId);
+    }
+
+    [HttpGet("{courseId:int}/list-of-teachers")]
+    public List<GetTeacherDto> GetListOfTeacher(int courseId)
+    {
+        return _courseRepository.GetTeachers(courseId);
     }
 }

@@ -32,8 +32,16 @@ public class TeacherRepository : ITeacherRepository
     {
         var totalUnit = _context.Classes.Where(_ => _.TeacherId == id && _.TermId == termId)
          .Sum(_ => _.Course.Unit);
+        var x = _context.Set<Teacher>().Where(_ => _.Id == id)
+            .Select(_ => new
+            {
+                name = _.LastName,
+                count = _.Classes.Where(c => c.TermId == termId)
+                .Sum(x => x.Course.Unit)
+            }).FirstOrDefault();
+
         return totalUnit;
-    }
+    } 
 
     public void Update(Teacher teacher)
     {
